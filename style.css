@@ -1,0 +1,618 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Acme', sans-serif;
+    box-sizing: border-box;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    min-height: 100vh;    
+}
+/* 캘린더 */
+.left-container{
+    flex:4;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    border : 3px solid rgb(188, 211, 241);
+    border-right: none;
+    align-items: center;
+}
+.calender{
+    width:90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cal-header{
+    display: flex;
+    align-items: center;
+
+    margin-top: 20px;
+}
+.year-month{
+    font-size: 40px;
+    margin-left: 117px;
+    display: flex;
+    flex: 8;
+    justify-content: center;
+    align-items: center;
+}
+.nav{
+    display: flex;
+    margin-right: 20px;
+    border:2px solid rgb(126, 176, 241);
+
+    border-radius: 5px;
+}
+.nav-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 30px;
+    border: none;
+    font-size: 16px;
+    line-height: 34px;
+    background-color: transparent;
+    cursor: pointer;
+    background-color:rgb(126, 176, 241);
+    color:white;
+}
+.nav-btn:hover{
+    background-color: rgb(105, 163, 240);
+}
+.go-today{
+    width: 75px;
+    border-left: 2px solid rgb(91, 162, 255);;
+    border-right: 2px solid rgb(91, 162, 255);
+    background-color:rgb(126, 176, 241);
+}
+.days{
+    display: flex;
+    margin: 25px 0 10px;
+}
+.day{
+    width:calc(100%/7);
+    text-align:center;
+}
+.dates{
+    display:flex;
+    flex-flow: row wrap;
+    height: 500px;
+    border-top: 1.6px solid black;
+    border-right: 1.6px solid black;
+}
+.date{
+    width: calc(100%/7);
+    padding: 15px;
+    text-align: right;
+    border-bottom: 1.6px solid black;
+    border-left: 1.6px solid black;
+}
+.day:nth-child(7n + 1),
+.date:nth-child(7n + 1) {
+  color: #D13E3E;
+}
+
+.day:nth-child(7n),
+.date:nth-child(7n) {
+  color: #396EE2;
+}
+.other {
+    opacity: .3;
+    cursor: not-allowed;
+  }
+
+  .this{
+    position: relative;
+    cursor: pointer;
+  }
+  .this:before{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    display: block;
+    width: 0px;
+    height: 0px;
+    background-color: #cc09f3;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    content: '';
+  }
+  .this:hover:before{
+    transition: 0.5s;
+    width: 30px;
+    height: 30px;
+  }
+  .this:hover{
+    color: white;
+  }
+  .today {
+    position: relative;
+    color: #FFFFFF;
+  }
+  
+  .today::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-color: #FF0000;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    content: '';
+  }
+.active{
+    position: relative;
+    color: white;
+  }
+.active::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-color: #cc09f3;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    content: '';
+}
+/* ---------------- */
+.right-container{
+    flex:5;
+    height: 100vh;
+
+    display:flex;
+    flex-direction: column;
+
+}
+.header{
+    flex:2;
+    display: flex;
+    flex-direction: column;
+    border : 3px solid rgb(188, 211, 241);
+    background-color: #e2f2ff;
+    border-bottom: none;
+    justify-content: center;
+    align-items: center;
+}
+.header-day{
+    flex:2;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    font-size: 2rem;
+    color:rgb(90, 89, 89);
+}
+.header-date{
+    flex:5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 8rem;
+    color:rgb(66, 66, 66);
+}
+
+/* 투두리스트  */
+.toDoList{
+    flex:4;
+    display:flex;
+    flex-direction: column;
+    border : 3px solid rgb(188, 211, 241);
+}
+/* .toDoList div{
+    border: 1px solid black;
+} */
+.td-header{
+    flex:1;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    margin-left: 3rem;
+    color:rgb(66, 66, 66);
+}
+.td-insert{
+    display: flex;
+    align-items: center;
+    flex:1;
+    margin-bottom: 10px;
+}
+.td-insert > input{
+    border: 3px solid rgb(143, 187, 245);
+    background-color: rgb(143, 187, 245);
+    color: white;
+    border-radius: 10px;
+    margin-left: 1rem;
+    font-size: 1rem;
+    width: 30rem;
+    height:2rem;
+}
+.td-insert input::placeholder{
+    margin-left: 10px;
+    color: white;
+}
+.td-insert > button{
+    cursor: pointer;
+    color: white;
+    background-color: rgb(143, 187, 245);
+    box-shadow: 2px 2px 2px 1px rgb(172, 172, 172);
+    border: none;
+    border-radius: 10px;
+    margin-left: 1rem;
+    width: 4rem;
+    height: 2rem;
+}
+.td-insert > button:hover{
+    background-color:rgb(126, 176, 241);
+}
+.td-insert > button:active{
+    margin-right:3px;
+    margin-top:5px;
+    box-shadow: none;
+}
+.td-listItems{
+    flex:6;
+    border-top: 3px solid rgb(188, 211, 241);
+    border-top-style: dashed;
+    background-color: rgb(246, 250, 255);
+    overflow-y: auto;
+    height: 300px;
+}
+.listStatus{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid rgb(188, 211, 241);
+    background-color: rgb(133, 186, 252);
+    color:white;
+
+}
+.total-plan{
+    flex:1;
+    border: 1px solid rgb(188, 211, 241);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.total-plan span{
+    flex:1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.progress-plan{
+    color:white;
+    flex:1;
+    border: 1px solid rgb(188, 211, 241);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.progress-plan span{
+    flex:1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.completed-plan{
+    color:white;
+    flex:1;
+    border: 1px solid rgb(188, 211, 241);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;    
+}
+.completed-plan span{
+    flex:1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.total-plan-span{
+    flex:1;
+    font-size:1.6rem;
+    border-left: 1px solid rgb(188, 211, 241);
+    border-left-style: dotted;    
+}
+.progress-plan-span{
+    font-size:1.6rem;
+    border-left: 1px solid rgb(188, 211, 241);
+    border-left-style: dotted;
+}
+.completed-plan-span{
+    font-size:1.6rem;
+    border-left: 1px solid rgb(188, 211, 241);
+    border-left-style: dotted;    
+}
+/* overflow가 잘 안되는 버그있음 */
+.td-listItem-span{
+    margin-left: 1.4rem;
+    flex:35;
+    font-size: 1rem;
+    font-weight: bold;
+}
+.td-listItem{
+    margin-left: 1rem;
+    margin-top: 10px;
+    display : flex;
+    align-items: center;
+}
+.checkBox
+{
+    flex: 1;
+    font-size: 1.2em;
+    cursor: pointer;
+    color:rgb(133, 211, 211);
+    opacity: 0.5;
+}
+.checkBox:hover{
+    opacity: 1;
+}
+
+.editIcon{
+    flex: 1;
+    margin-right:1.5rem;
+    cursor: pointer;
+    opacity: 0.5;
+}
+.editIcon:hover{
+    opacity: 1;
+}
+.deleteIcon{
+    flex: 1;
+    margin-right: 2rem;
+    cursor: pointer;
+    opacity: 0.5;
+}
+.deleteIcon:hover{
+    opacity: 1;
+}
+
+/* emotionDiary */
+.emotionDiary{
+    flex:3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border : 3px solid rgb(188, 211, 241);
+    border-top: none;
+}
+.selectEm{
+    flex: 1;
+    display: flex;
+}
+.emList{
+    flex:1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgb(188, 211, 241);
+    border-radius: 10px;
+    margin: 0px 20px;
+    margin-top: 10px;
+}
+.emList img{
+    margin: 1rem 2rem;
+}
+.happy{
+    cursor: pointer;
+    border: 3px solid rgb(188, 211, 241);;
+    border-radius: 50%;
+}
+.happy:hover{
+    transition: 0.3s;
+    border: 3px solid red;
+}
+
+.good{
+    cursor: pointer;
+    border: 3px solid rgb(188, 211, 241);;
+    border-radius: 50%;
+}
+.good:hover{
+    transition: 0.3s;
+    border: 3px solid orange;
+}
+
+.meh{
+    cursor: pointer;
+    border: 3px solid rgb(188, 211, 241);;
+    border-radius: 50%;
+}
+.meh:hover{
+    transition: 0.3s;
+    border: 3px solid rgb(255, 255, 0);    
+}
+
+.sad{
+    cursor: pointer;
+    border: 3px solid rgb(188, 211, 241);;
+    border-radius: 50%;
+}
+.sad:hover{
+    transition: 0.3s;
+    border: 3px solid green;
+}
+
+.crying{
+    cursor: pointer;
+    border: 3px solid rgb(188, 211, 241);
+    border-radius: 50%;     
+}
+.crying:hover{
+    transition: 0.3s;
+    border: 3px solid blue;
+}
+
+.angry{
+    cursor: pointer;
+    border: 3px solid rgb(188, 211, 241);;
+    border-radius: 50%;
+}
+.angry:hover{
+    transition: 0.3s;
+    border: 3px solid black;
+}
+.diary{
+    flex:3;
+    display:flex;
+    flex-direction: row;
+}
+.db-header{
+    flex:1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin:10px;
+    color: rgb(147, 147, 224)
+}
+.db-header-date{
+    flex: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+    border: 4px solid rgb(236, 150, 139);
+    border-top-left-radius: 10px; 
+    border-bottom-left-radius: 10px; 
+
+}
+.db-header-date span{
+    flex: 1;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    border-right: 4px solid rgb(236, 150, 139);
+    border-right-style: dotted;
+}
+.db-header-date div{
+    flex:3;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    color: black;
+}
+
+.insertEm{
+    flex: 3;
+    border: 4px solid rgb(236, 150, 139);
+    border-left: none;
+    border-top-right-radius: 10px; 
+    border-bottom-right-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.insertEm div{
+    flex: 4;
+    margin: 0px 10px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+.insertEm img{
+    padding: 3px 0px;
+}
+.insertEm span{
+    flex:2;
+    display: flex;
+    padding: 0px 10px;
+    align-content: center;
+    justify-content: center;
+    border-right: 4px solid rgb(236, 150, 139);
+    border-right-style: dotted;
+}
+.em-insert-ta{
+    flex:10;
+    font-size: 1.7rem;
+    margin: 20px;
+    border : 3px solid rgb(188, 211, 241);
+    border-radius: 10px;
+}
+.em-insert-ta::placeholder{
+    font-size: 1rem;
+    text-align:center;
+    vertical-align: center;
+}
+.em-insert-button{
+    flex:1;
+    background-color: white;
+    cursor: pointer;
+    border : 3px solid rgb(188, 211, 241);
+    margin: 20px 0px;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+.em-insert-button:hover{
+    background-color: rgb(236, 236, 236);
+}
+.diaryBoard{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 249, 246);
+}
+
+.db-body{
+    display: flex;
+    flex-direction: column;
+    flex:4;
+    margin: 0px 10px;
+    margin-bottom: 10px;
+    border: 4px solid rgb(236, 168, 159);
+    border-radius: 10px;
+}
+.shownDiary{
+    flex:13;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.6em;
+    margin: 0px 10px;
+    padding: 20px 0px;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    display: flex;
+    align-content: center;
+    justify-content: center;   
+}
+.db-body-button{
+    margin: 0 auto;
+}
+.db-reset-button{
+    flex:1;
+    cursor: pointer;
+    display: inline-block;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.4rem;
+    background-color: rgb(236, 168, 159);
+    box-shadow: 2px 2px 2px 1px rgb(172, 172, 172);
+    margin-bottom: 10px;
+    width:5rem;
+    height:2.3rem;
+}
+.db-reset-button:hover{
+    background-color: rgb(243, 153, 141);
+}
+.db-reset-button:active{
+    box-shadow: none;
+}

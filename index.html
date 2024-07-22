@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+    <title>emTd</title>
+    <meta charset="'utf-8">
+    <link rel="stylesheet" href="style.css"></link>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6d6a0790d0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="left-container">
+            <div class="calendar">
+              <div class="cal-header">
+                <div class="year-month"></div>
+                <div class="nav">
+                  <button class="nav-btn go-prev" onclick="prevMonth()">&lt;</button>
+                  <button class="nav-btn go-today" onclick="goToday()">Today</button>
+                  <button class="nav-btn go-next" onclick="nextMonth()">&gt;</button>
+                </div>
+              </div>
+              <div class="cal-main">
+                <div class="days">
+                  <div class="day">Sun</div>
+                  <div class="day">Mon</div>
+                  <div class="day">Tue</div>
+                  <div class="day">Wed</div>
+                  <div class="day">Thu</div>
+                  <div class="day">Fri</div>
+                  <div class="day">Sat</div>
+                </div>
+                <div class="dates"></div>
+              </div>
+            </div>
+        </div>
+        <div class="right-container">
+          <div class="header">
+            <div class="header-day"></div>
+            <div class="header-date"></div>
+          </div>
+            
+            <div class="toDoList">
+              <div class="td-header">TODO LIST</div>
+              <div class="td-insert">
+                <input type="text" class="td-inserts-input" placeholder="please enter" >
+                <button class="td-insert-button">Enter</button>
+              </div>
+              <div class="td-listItems">
+              </div>
+              <div class="listStatus">
+                <div class="total-plan">
+                  <span>Total </span>
+                  <span class="total-plan-span"></span>
+                </div>
+                <div class="progress-plan">
+                  <span>Working </span>
+                  <span class="progress-plan-span"></span>
+                </div>
+                <div class="completed-plan">
+                  <span>Completed </span>
+                  <span class="completed-plan-span"></span>
+                </div>
+              </div>
+            </div>
+            <div class="emotionDiary">
+              <div class="selectEm">
+                <div class="emList">
+                  <img src="icon/happy.png" alt="" class="happy">
+                  <img src="icon/good.png" alt="" class="good">
+                  <img src="icon/meh.png" alt="" class="meh">
+                  <img src="icon/sad.png" alt="" class="sad">
+                  <img src="icon/crying.png" alt="" class="crying">
+                  <img src="icon/angry.png" alt="" class="angry">
+                </div>
+              </div>
+              <div class="diary">
+                <textarea class="em-insert-ta" placeholder="최대 세 줄로 오늘의 하루를 남겨봐요"></textarea>
+                <button class="em-insert-button">Enter</button>
+              </div>
+              <div class="diaryBoard" style="display: none;">
+                <div class="db-header">
+
+                  <div class="db-header-date">
+                    <span>date</span>
+                    <div></div>
+                  </div>
+
+                  <div class="insertEm">
+                    <span>feelings</span>
+                    <div></div>
+                  </div>
+                  
+                </div>
+                <div class="db-body">
+                  <div class="db-body-content"></div>
+                  <div class="db-body-button"><button class="db-reset-button">reset</button></div>
+                </div> 
+              </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src='calendar.js' charset="'utf-8"></script>
+</html>
